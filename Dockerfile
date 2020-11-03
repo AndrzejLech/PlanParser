@@ -7,4 +7,4 @@ COPY . .
 
 RUN go install -v
 
-CMD ["app"]
+RUN go run main.go
