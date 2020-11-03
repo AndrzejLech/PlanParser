@@ -1,17 +1,10 @@
 FROM golang:1.15.3
 
-ADD . /go/src/app
+RUN go get github.com/gin-gonic/gin
+
 WORKDIR /go/src/app
+COPY . .
 
-ENV PORT 8080
-EXPOSE 8080
+RUN go install -v
 
-RUN apk add --no-cache git
-
-RUN go get
-
-RUN apk del git
-
-RUN go build -o main .
-
-CMD ["/go/src/app/main"]
+CMD ["app"]
