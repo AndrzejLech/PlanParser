@@ -6,4 +6,3 @@ WORKDIR /go/src/app
 COPY . .
 
 RUN go install -v
-CMD [ "run go main.go" ]
