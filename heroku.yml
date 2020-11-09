@@ -2,4 +2,4 @@ build:
   docker:
     web: Dockerfile
 run:
-  web: go run main.co
+  web: go run main.go
