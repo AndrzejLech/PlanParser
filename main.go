@@ -108,7 +108,7 @@ func GetPlan(context *gin.Context) {
 			day.Name = nameOfday[indexOfDays]
 			days = append(days, day)
 			indexOfDays++
-			day.Subjects = nilm
+			day.Subjects = nil
 		}
 		day.Subjects = append(day.Subjects, subject)
 		index++
