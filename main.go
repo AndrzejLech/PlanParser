@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/gocolly/colly"
+	"github.com/gin-contrib/cors"
+	"time"
 )
 
 type Subject struct {
@@ -18,7 +20,7 @@ type Day struct {
 	Subjects []Subject `json:"subjects"`
 }
 
-func GetImage(context *gin.Context )  {
+func GetImage(context *gin.Context) {
 	context.HTML(200, "image.html", gin.H{})
 }
 
@@ -127,10 +129,21 @@ func GetPlan(context *gin.Context) {
 	})
 }
 
-
 func main() {
-	router := gin.Default()
+	router := gin.New()
 	router.LoadHTMLGlob("image.html")
+
+	router.Use(cors.New(cors.Config{
+		AllowOrigins:     []string{"*"},
+		AllowMethods:     []string{"PUT", "PATCH"},
+		AllowHeaders:     []string{"Origin"},
+		ExposeHeaders:    []string{"Content-Length"},
+		AllowCredentials: true,
+		AllowOriginFunc: func(origin string) bool {
+			return origin == "https://github.com"
+		},
+		MaxAge: 12 * time.Hour,
+	}))
 
 	router.GET("/", GetImage)
 	router.GET("/index", GetPlan)
