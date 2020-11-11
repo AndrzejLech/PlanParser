@@ -111,16 +111,15 @@ func GetPlan(context *gin.Context) {
 			indexOfDays++
 			day.Subjects = nil
 		}
-		fmt.Println(indexOfDays)
 		day.Subjects = append(day.Subjects, subject)
 	}
 
 	context.JSON(200, gin.H{
-		days[0].Name: days[0],
-		days[1].Name: days[1],
-		days[2].Name: days[2],
-		days[3].Name: days[3],
-		days[4].Name: days[4],
+		"Monday":    	days[0],
+		"Tuesday":   	days[1],
+		"Wednesday": 	days[2],
+		"Thursday":  	days[3],
+		"Friday":    	days[4],
 	})
 }
 
