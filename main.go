@@ -18,6 +18,10 @@ type Day struct {
 	Subjects []Subject `json:"subjects"`
 }
 
+func GetImage(context *gin.Context )  {
+	context.HTML(200, "image.html", gin.H{})
+}
+
 func GetPlan(context *gin.Context) {
 	c := colly.NewCollector()
 
@@ -115,17 +119,20 @@ func GetPlan(context *gin.Context) {
 	}
 
 	context.JSON(200, gin.H{
-		"Monday":    	days[0],
-		"Tuesday":   	days[1],
-		"Wednesday": 	days[2],
-		"Thursday":  	days[3],
-		"Friday":    	days[4],
+		"Monday":    days[0],
+		"Tuesday":   days[1],
+		"Wednesday": days[2],
+		"Thursday":  days[3],
+		"Friday":    days[4],
 	})
 }
 
+
 func main() {
 	router := gin.Default()
+	router.LoadHTMLGlob("image.html")
 
+	router.GET("/", GetImage)
 	router.GET("/index", GetPlan)
 	router.Run()
 }
