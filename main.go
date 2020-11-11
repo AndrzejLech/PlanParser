@@ -101,21 +101,26 @@ func GetPlan(context *gin.Context) {
 
 	var indexOfDays = 0
 	var day Day
-	var index = 0
 
-	for _, subject := range subjects {
-		if (index % 7) == 0 {
+	for index, subject := range subjects {
+		if index < 7 {
+
+		} else if (index % 7) == 0 {
 			day.Name = nameOfday[indexOfDays]
 			days = append(days, day)
 			indexOfDays++
 			day.Subjects = nil
 		}
+		fmt.Println(indexOfDays)
 		day.Subjects = append(day.Subjects, subject)
-		index++
 	}
 
 	context.JSON(200, gin.H{
-		"days": days,
+		days[0].Name: days[0],
+		days[1].Name: days[1],
+		days[2].Name: days[2],
+		days[3].Name: days[3],
+		days[4].Name: days[4],
 	})
 }
 

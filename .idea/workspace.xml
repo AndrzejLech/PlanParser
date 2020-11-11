@@ -36,7 +36,20 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Golang-PostgreSQL-PlanAPI" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/main.go" />
+    <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration name="go build github.com/planParser" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+      <module name="PlanParser" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="DIRECTORY" />
+      <filePath value="$PROJECT_DIR$/../PlanParser|$PROJECT_DIR$/main.go" />
+      <package value="github.com/planParser" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
@@ -62,38 +75,42 @@
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="WindowStateProjectService">
-    <state x="828" y="149" width="1092" height="891" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604413732473">
+    <state x="828" y="45" width="1092" height="995" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605063318412">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="828" y="149" width="1092" height="891" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604413732473" />
+    <state x="828" y="45" width="1092" height="995" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605063318412" />
     <state x="722" y="309" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604432975566">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="722" y="309" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1604432975566" />
+    <state x="1154" y="259" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1605063205295">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1154" y="259" key="#com.intellij.ide.macro.MacrosDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605063205295" />
     <state x="1239" y="226" key="EnvironmentVariablesDialog" timestamp="1604413619052">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1239" y="226" key="EnvironmentVariablesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604413619052" />
-    <state x="267" y="278" key="FileChooserDialogImpl" timestamp="1604413613748">
+    <state x="267" y="278" key="FileChooserDialogImpl" timestamp="1605063290583">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="267" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604413613748" />
-    <state width="914" height="274" key="GridCell.Tab.0.bottom" timestamp="1604416566129">
+    <state x="267" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1605063290583" />
+    <state width="914" height="274" key="GridCell.Tab.0.bottom" timestamp="1605063683188">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604416566129" />
-    <state width="914" height="274" key="GridCell.Tab.0.center" timestamp="1604416566129">
+    <state width="914" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605063683188" />
+    <state width="914" height="274" key="GridCell.Tab.0.center" timestamp="1605063683188">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="274" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604416566129" />
-    <state width="914" height="274" key="GridCell.Tab.0.left" timestamp="1604416566129">
+    <state width="914" height="274" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605063683188" />
+    <state width="914" height="274" key="GridCell.Tab.0.left" timestamp="1605063683188">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="274" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604416566129" />
-    <state width="914" height="274" key="GridCell.Tab.0.right" timestamp="1604416566129">
+    <state width="914" height="274" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605063683188" />
+    <state width="914" height="274" key="GridCell.Tab.0.right" timestamp="1605063683188">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="274" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604416566129" />
+    <state width="914" height="274" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605063683188" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604431129047">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
