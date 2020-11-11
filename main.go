@@ -31,7 +31,7 @@ func GetPlan(context *gin.Context) {
 		fmt.Println("Visiting", r.URL)
 	})
 	counterToFour := 1
-	counterToTwo := 2
+	counterToTwo := 1
 	var subjects []Subject
 	var text string
 
@@ -146,6 +146,6 @@ func main() {
 	}))
 
 	router.GET("/", GetImage)
-	router.GET("/index", GetPlan)
+	router.GET("/inf", GetPlan)
 	router.Run()
 }
