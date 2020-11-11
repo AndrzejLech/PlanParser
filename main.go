@@ -24,7 +24,112 @@ func GetImage(context *gin.Context) {
 	context.HTML(200, "image.html", gin.H{})
 }
 
-func GetPlan(context *gin.Context) {
+func GetNur(context *gin.Context) {
+	c := colly.NewCollector()
+
+	c.OnRequest(func(r *colly.Request) {
+		fmt.Println("Visiting", r.URL)
+	})
+	counterToTwentyEight := 1
+	counterToFourteen := 1
+	var subjects []Subject
+	var text string
+
+	var names []string
+	var lecturers []string
+	var hours []string
+	var classes []string
+
+	var days []Day
+	var nameOfday []string
+
+	c.OnHTML("tbody", func(elementTBody *colly.HTMLElement) {
+		elementTBody.ForEach("tr", func(_ int, elementTr *colly.HTMLElement) {
+
+			elementTr.ForEach("td.test", func(_ int, elementTdTest *colly.HTMLElement) {
+				text = elementTdTest.Text
+				if text == "" {
+					return
+				}
+
+				if counterToTwentyEight == 17 {
+					names = append(names, text)
+				} else if counterToTwentyEight == 18 {
+					lecturers = append(lecturers, text)
+				}else if counterToTwentyEight == 28{
+					counterToTwentyEight = 0
+				}
+				counterToTwentyEight++
+			})
+
+			elementTr.ForEach("td.test2", func(_ int, elementTdTest2 *colly.HTMLElement) {
+				text = elementTdTest2.Text
+				if text == "" {
+					return
+				}
+				if counterToFourteen == 9 {
+					classes = append(classes, text)
+				} else if counterToFourteen == 14 {
+					counterToFourteen = 0
+				}
+				counterToFourteen++
+			})
+
+			elementTr.ForEach("td.godzina", func(_ int, elementTdGodzina *colly.HTMLElement) {
+				text = elementTdGodzina.Text
+				if text == "" {
+					return
+				}
+				hours = append(hours, text)
+			})
+			elementTr.ForEach("td.nazwaDnia", func(i int, elementTdNazwaDnia *colly.HTMLElement) {
+				text = elementTdNazwaDnia.Text
+				if text == "" {
+					return
+				}
+				nameOfday = append(nameOfday, text)
+			})
+		})
+	})
+
+	c.Visit("http://www.plan.pwsz.legnica.edu.pl/checkSpecjalnosc.php?specjalnosc=s3P")
+
+	var subject Subject
+
+	for index, name := range names {
+		subject.Name = name
+		subject.Hour = hours[index]
+		subject.Lecturer = lecturers[index]
+		subject.Class = classes[index]
+		subjects = append(subjects, subject)
+	}
+
+	var indexOfDays = 0
+	var day Day
+
+	for index, subject := range subjects {
+		if index < 7 {
+
+		} else if (index % 7) == 0 {
+			day.Name = nameOfday[indexOfDays]
+			days = append(days, day)
+			indexOfDays++
+			day.Subjects = nil
+		}
+		day.Subjects = append(day.Subjects, subject)
+	}
+
+	context.JSON(200, gin.H{
+		"Monday":    days[0],
+		"Tuesday":   days[1],
+		"Wednesday": days[2],
+		"Thursday":  days[3],
+		"Friday":    days[4],
+	})
+}
+
+
+func GetInf(context *gin.Context) {
 	c := colly.NewCollector()
 
 	c.OnRequest(func(r *colly.Request) {
@@ -146,6 +251,7 @@ func main() {
 	}))
 
 	router.GET("/", GetImage)
-	router.GET("/inf", GetPlan)
+	router.GET("/inf", GetInf)
+	router.GET("/nur", GetNur)
 	router.Run()
 }
