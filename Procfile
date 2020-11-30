@@ -1,1 +1,1 @@
-worker: go run main.go
+worker: docker-compose up
