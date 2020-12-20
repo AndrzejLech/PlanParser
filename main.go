@@ -119,12 +119,10 @@ func GetNur(context *gin.Context) {
 		day.Subjects = append(day.Subjects, subject)
 	}
 
+	days = days[:len(days) - 1]
+
 	context.JSON(200, gin.H{
-		"Monday":    days[0],
-		"Tuesday":   days[1],
-		"Wednesday": days[2],
-		"Thursday":  days[3],
-		"Friday":    days[4],
+		"days":    days,
 	})
 }
 
@@ -223,12 +221,10 @@ func GetInfOneOne(context *gin.Context) {
 		day.Subjects = append(day.Subjects, subject)
 	}
 
+	days = days[:len(days) - 1]
+
 	context.JSON(200, gin.H{
-		"Monday":    days[0],
-		"Tuesday":   days[1],
-		"Wednesday": days[2],
-		"Thursday":  days[3],
-		"Friday":    days[4],
+		"days":    days,
 	})
 }
 
@@ -324,12 +320,10 @@ func GetInfOneTwo(context *gin.Context) {
 		day.Subjects = append(day.Subjects, subject)
 	}
 
+	days = days[:len(days) - 1]
+
 	context.JSON(200, gin.H{
-		"Monday":    days[0],
-		"Tuesday":   days[1],
-		"Wednesday": days[2],
-		"Thursday":  days[3],
-		"Friday":    days[4],
+		"days":    days,
 	})
 }
 
