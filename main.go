@@ -195,7 +195,7 @@ func GetInfOneOne(context *gin.Context) {
 		})
 	})
 
-	err := c.Visit("http://www.plan.pwsz.legnica.edu.pl/checkSpecjalnosc.php?specjalnosc=s4PAM")
+	err := c.Visit("http://www.plan.pwsz.legnica.edu.pl/checkSpecjalnoscStac.php?specjalnosc=s4PAM")
 
 	if err != nil {
 		return
@@ -296,7 +296,7 @@ func GetInfOneTwo(context *gin.Context) {
 		})
 	})
 
-	err := c.Visit("http://www.plan.pwsz.legnica.edu.pl/checkSpecjalnosc.php?specjalnosc=s4PAM")
+	err := c.Visit("http://www.plan.pwsz.legnica.edu.pl/checkSpecjalnoscStac.php?specjalnosc=s4PAM")
 
 	if err != nil {
 		return

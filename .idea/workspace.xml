@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f3602fc-df54-475b-b4f4-f0101166e99a" name="Default Changelist" comment="udpate Dockerfile">
+    <list default="true" id="2f3602fc-df54-475b-b4f4-f0101166e99a" name="Default Changelist" comment="change retun structure">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,7 +87,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="udpate Dockerfile" />
-    <option name="LAST_COMMIT_MESSAGE" value="udpate Dockerfile" />
+    <MESSAGE value="change retun structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="change retun structure" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
