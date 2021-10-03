@@ -64,9 +64,9 @@
       <working_directory value="$PROJECT_DIR$" />
       <go_parameters value="-i" />
       <kind value="DIRECTORY" />
-      <filePath value="$PROJECT_DIR$/../PlanParser|$PROJECT_DIR$/main.go" />
       <package value="github.com/planParser" />
       <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/../PlanParser|$PROJECT_DIR$/main.go" />
       <method v="2" />
     </configuration>
   </component>

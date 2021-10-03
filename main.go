@@ -92,7 +92,7 @@ func GetNur(context *gin.Context) {
 		})
 	})
 
-	c.Visit("http://www.plan.pwsz.legnica.edu.pl/checkSpecjalnosc.php?specjalnosc=s3P")
+	c.Visit("http://www.plan.pwsz.legnica.edu.pl/checkSpecjalnosc.php?specjalnosc=s4P")
 
 	var subject Subject
 
@@ -194,7 +194,7 @@ func GetInfOneOne(context *gin.Context) {
 		})
 	})
 
-	c.Visit("http://www.plan.pwsz.legnica.edu.pl/checkSpecjalnosc.php?specjalnosc=s3PAM")
+	c.Visit("http://www.plan.pwsz.legnica.edu.pl/checkSpecjalnosc.php?specjalnosc=s4PAM")
 
 	var subject Subject
 
@@ -293,7 +293,7 @@ func GetInfOneTwo(context *gin.Context) {
 		})
 	})
 
-	c.Visit("http://www.plan.pwsz.legnica.edu.pl/checkSpecjalnosc.php?specjalnosc=s3PAM")
+	c.Visit("http://www.plan.pwsz.legnica.edu.pl/checkSpecjalnosc.php?specjalnosc=s4PAM")
 
 	var subject Subject
 
