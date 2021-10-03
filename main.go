@@ -92,7 +92,11 @@ func GetNur(context *gin.Context) {
 		})
 	})
 
-	c.Visit("http://www.plan.pwsz.legnica.edu.pl/checkSpecjalnosc.php?specjalnosc=s4P")
+	err := c.Visit("http://www.plan.pwsz.legnica.edu.pl/checkSpecjalnosc.php?specjalnosc=s4P")
+
+	if err != nil {
+		return
+	}
 
 	var subject Subject
 
@@ -191,7 +195,11 @@ func GetInfOneOne(context *gin.Context) {
 		})
 	})
 
-	c.Visit("http://www.plan.pwsz.legnica.edu.pl/checkSpecjalnosc.php?specjalnosc=s4PAM")
+	err := c.Visit("http://www.plan.pwsz.legnica.edu.pl/checkSpecjalnosc.php?specjalnosc=s4PAM")
+
+	if err != nil {
+		return
+	}
 
 	var subject Subject
 
@@ -288,7 +296,11 @@ func GetInfOneTwo(context *gin.Context) {
 		})
 	})
 
-	c.Visit("http://www.plan.pwsz.legnica.edu.pl/checkSpecjalnosc.php?specjalnosc=s4PAM")
+	err := c.Visit("http://www.plan.pwsz.legnica.edu.pl/checkSpecjalnosc.php?specjalnosc=s4PAM")
+
+	if err != nil {
+		return
+	}
 
 	var subject Subject
 
@@ -340,5 +352,9 @@ func main() {
 	router.GET("/inf-1-1", GetInfOneOne)
 	router.GET("/inf-1-2", GetInfOneTwo)
 	router.GET("/nur", GetNur)
-	router.Run()
+	err := router.Run()
+
+	if err != nil {
+		return
+	}
 }
