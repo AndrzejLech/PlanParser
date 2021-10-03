@@ -30,8 +30,8 @@ func GetNur(context *gin.Context) {
 	c.OnRequest(func(r *colly.Request) {
 		fmt.Println("Visiting", r.URL)
 	})
-	counterToTwentyEight := 1
-	counterToFourteen := 1
+	counterToEight := 1
+	counterToFour := 1
 	var subjects []Subject
 	var text string
 
@@ -41,7 +41,7 @@ func GetNur(context *gin.Context) {
 	var classes []string
 
 	var days []Day
-	var nameOfday []string
+	var nameOfDay []string
 
 	c.OnHTML("tbody", func(elementTBody *colly.HTMLElement) {
 		elementTBody.ForEach("tr", func(_ int, elementTr *colly.HTMLElement) {
@@ -51,15 +51,14 @@ func GetNur(context *gin.Context) {
 				if text == "" {
 					return
 				}
-
-				if counterToTwentyEight == 17 {
+				if counterToEight == 1 {
 					names = append(names, text)
-				} else if counterToTwentyEight == 18 {
+				} else if counterToEight == 2 {
 					lecturers = append(lecturers, text)
-				} else if counterToTwentyEight == 28 {
-					counterToTwentyEight = 0
+				} else if counterToEight == 8 {
+					counterToEight = 0
 				}
-				counterToTwentyEight++
+				counterToEight++
 			})
 
 			elementTr.ForEach("td.test2", func(_ int, elementTdTest2 *colly.HTMLElement) {
@@ -67,12 +66,12 @@ func GetNur(context *gin.Context) {
 				if text == "" {
 					return
 				}
-				if counterToFourteen == 9 {
+				if counterToFour == 1 {
 					classes = append(classes, text)
-				} else if counterToFourteen == 14 {
-					counterToFourteen = 0
+				} else if counterToFour == 4 {
+					counterToFour = 0
 				}
-				counterToFourteen++
+				counterToFour++
 			})
 
 			elementTr.ForEach("td.godzina", func(_ int, elementTdGodzina *colly.HTMLElement) {
@@ -82,17 +81,18 @@ func GetNur(context *gin.Context) {
 				}
 				hours = append(hours, text)
 			})
+
 			elementTr.ForEach("td.nazwaDnia", func(i int, elementTdNazwaDnia *colly.HTMLElement) {
 				text = elementTdNazwaDnia.Text
 				if text == "" {
 					return
 				}
-				nameOfday = append(nameOfday, text)
+				nameOfDay = append(nameOfDay, text)
 			})
 		})
 	})
 
-	err := c.Visit("http://www.plan.pwsz.legnica.edu.pl/checkSpecjalnosc.php?specjalnosc=s4P")
+	err := c.Visit("http://www.plan.pwsz.legnica.edu.pl/checkSpecjalnosc.php?specjalnosc=s1MP")
 
 	if err != nil {
 		return
@@ -115,7 +115,7 @@ func GetNur(context *gin.Context) {
 		if index < 7 {
 
 		} else if (index % 7) == 0 {
-			day.Name = nameOfday[indexOfDays]
+			day.Name = nameOfDay[indexOfDays]
 			days = append(days, day)
 			indexOfDays++
 			day.Subjects = nil

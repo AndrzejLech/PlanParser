@@ -19,8 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f3602fc-df54-475b-b4f4-f0101166e99a" name="Default Changelist" comment="change retun structure">
+    <list default="true" id="2f3602fc-df54-475b-b4f4-f0101166e99a" name="Default Changelist" comment="change to whole year harmonogram">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +89,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="udpate Dockerfile" />
     <MESSAGE value="change retun structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="change retun structure" />
+    <MESSAGE value="change to whole year harmonogram" />
+    <option name="LAST_COMMIT_MESSAGE" value="change to whole year harmonogram" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
