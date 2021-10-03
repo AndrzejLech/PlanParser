@@ -92,7 +92,7 @@ func GetNur(context *gin.Context) {
 		})
 	})
 
-	err := c.Visit("http://www.plan.pwsz.legnica.edu.pl/checkSpecjalnosc.php?specjalnosc=s1MP")
+	err := c.Visit("http://www.plan.pwsz.legnica.edu.pl/checkSpecjalnoscStac.php?specjalnosc=s1MP")
 
 	if err != nil {
 		return
