@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/gocolly/colly"
-	"github.com/gin-contrib/cors"
 	"time"
 )
 
@@ -12,7 +12,7 @@ type Subject struct {
 	Hour     string `json:"hour"`
 	Name     string `json:"name"`
 	Lecturer string `json:"lecturer"`
-	Class    string `json:"class"`
+	Room     string `json:"room"`
 }
 
 type Day struct {
@@ -56,7 +56,7 @@ func GetNur(context *gin.Context) {
 					names = append(names, text)
 				} else if counterToTwentyEight == 18 {
 					lecturers = append(lecturers, text)
-				}else if counterToTwentyEight == 28{
+				} else if counterToTwentyEight == 28 {
 					counterToTwentyEight = 0
 				}
 				counterToTwentyEight++
@@ -100,7 +100,7 @@ func GetNur(context *gin.Context) {
 		subject.Name = name
 		subject.Hour = hours[index]
 		subject.Lecturer = lecturers[index]
-		subject.Class = classes[index]
+		subject.Room = classes[index]
 		subjects = append(subjects, subject)
 	}
 
@@ -119,13 +119,10 @@ func GetNur(context *gin.Context) {
 		day.Subjects = append(day.Subjects, subject)
 	}
 
-	days = days[:len(days) - 1]
+	days = days[:len(days)-1]
 
-	context.JSON(200, gin.H{
-		"days":    days,
-	})
+	context.JSON(200, days)
 }
-
 
 func GetInfOneOne(context *gin.Context) {
 	c := colly.NewCollector()
@@ -158,7 +155,7 @@ func GetInfOneOne(context *gin.Context) {
 					names = append(names, text)
 				} else if counterToFour == 2 {
 					lecturers = append(lecturers, text)
-				}else if counterToFour == 4 {
+				} else if counterToFour == 4 {
 					counterToFour = 0
 				}
 				counterToFour++
@@ -202,7 +199,7 @@ func GetInfOneOne(context *gin.Context) {
 		subject.Name = name
 		subject.Hour = hours[index]
 		subject.Lecturer = lecturers[index]
-		subject.Class = classes[index]
+		subject.Room = classes[index]
 		subjects = append(subjects, subject)
 	}
 
@@ -221,11 +218,9 @@ func GetInfOneOne(context *gin.Context) {
 		day.Subjects = append(day.Subjects, subject)
 	}
 
-	days = days[:len(days) - 1]
+	days = days[:len(days)-1]
 
-	context.JSON(200, gin.H{
-		"days":    days,
-	})
+	context.JSON(200, days)
 }
 
 func GetInfOneTwo(context *gin.Context) {
@@ -256,11 +251,11 @@ func GetInfOneTwo(context *gin.Context) {
 					return
 				}
 				if counterToFour == 3 {
-				names = append(names, text)
+					names = append(names, text)
 				} else if counterToFour == 4 {
-				lecturers = append(lecturers, text)
-				counterToFour = 0
-			}
+					lecturers = append(lecturers, text)
+					counterToFour = 0
+				}
 				counterToFour++
 			})
 
@@ -301,7 +296,7 @@ func GetInfOneTwo(context *gin.Context) {
 		subject.Name = name
 		subject.Hour = hours[index]
 		subject.Lecturer = lecturers[index]
-		subject.Class = classes[index]
+		subject.Room = classes[index]
 		subjects = append(subjects, subject)
 	}
 
@@ -320,11 +315,9 @@ func GetInfOneTwo(context *gin.Context) {
 		day.Subjects = append(day.Subjects, subject)
 	}
 
-	days = days[:len(days) - 1]
+	days = days[:len(days)-1]
 
-	context.JSON(200, gin.H{
-		"days":    days,
-	})
+	context.JSON(200, days)
 }
 
 func main() {
