@@ -348,15 +348,15 @@ func GetSzymin(context *gin.Context) {
 
 	subjects2 := getS2ZIIN()
 
-	for index, subject := range subjects1 {
-		if (index % 7) == 0 {
+	for index, subject1 := range subjects1 {
+		if index < 7 {
+
+		} else if (index % 7) == 0 {
 			day.Name = nameOfDay[indexOfDays]
 			days = append(days, day)
 			indexOfDays++
-			day.Subject1 = nil
-			day.Subject2 = nil
 		}
-		day.Subject1 = append(day.Subject1, subject)
+		day.Subject1 = append(day.Subject1, subject1)
 		day.Subject2 = append(day.Subject2, subjects2[index])
 	}
 
