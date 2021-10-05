@@ -20,6 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f3602fc-df54-475b-b4f4-f0101166e99a" name="Default Changelist" comment="update szymin">
+      <change afterPath="$PROJECT_DIR$/controllers.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scrapper.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/structs.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
@@ -43,9 +46,13 @@
     <option name="indexEntireGoPath" value="false" />
   </component>
   <component name="ProjectId" id="1jYJoi85pryfNbJY5z50XQJyYuq" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="sortByType" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultGoTemplateProperty" value="Go File" />
