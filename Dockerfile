@@ -6,5 +6,3 @@ WORKDIR /go/src/app
 COPY . .
 
 RUN go install -v
-
-CMD ["/bin/sh -c go\ run\ ."]
