@@ -20,6 +20,12 @@ type Day struct {
 	Subjects []Subject `json:"subjects"`
 }
 
+type DoubleDay struct {
+	Name     string    `json:"name:"`
+	Subject1 []Subject `json:"subject1"`
+	Subject2 []Subject `json:"subject2"`
+}
+
 func GetImage(context *gin.Context) {
 	context.HTML(200, "image.html", gin.H{})
 }
@@ -332,6 +338,195 @@ func GetInfOneTwo(context *gin.Context) {
 	context.JSON(200, days)
 }
 
+func GetSzymin(context *gin.Context) {
+
+	var indexOfDays = 0
+	var day DoubleDay
+	var days []DoubleDay
+
+	subjects1, nameOfDay := getS3GK()
+
+	subjects2 := getS2ZIIN()
+
+	for index, subject := range subjects1 {
+		if (index % 7) == 0 {
+			day.Name = nameOfDay[indexOfDays]
+			days = append(days, day)
+			indexOfDays++
+			day.Subject1 = nil
+			day.Subject2 = nil
+		}
+		day.Subject1 = append(day.Subject1, subject)
+		day.Subject2 = append(day.Subject2, subjects2[index])
+	}
+
+	days = days[:len(days)-1]
+
+	context.JSON(200, days)
+}
+
+func getS3GK() ([]Subject, []string) {
+	c := colly.NewCollector()
+
+	c.OnRequest(func(r *colly.Request) {
+		fmt.Println("Visiting", r.URL)
+	})
+	counterToFour := 1
+	counterToTwo := 1
+	var subjects []Subject
+	var text string
+
+	var nameOfDay []string
+
+	var names []string
+	var lecturers []string
+	var hours []string
+	var classes []string
+
+	c.OnHTML("tbody", func(elementTBody *colly.HTMLElement) {
+		elementTBody.ForEach("tr", func(_ int, elementTr *colly.HTMLElement) {
+
+			elementTr.ForEach("td.test", func(_ int, elementTdTest *colly.HTMLElement) {
+				text = elementTdTest.Text
+				if text == "" {
+					return
+				}
+				if counterToFour == 1 {
+					names = append(names, text)
+				} else if counterToFour == 2 {
+					lecturers = append(lecturers, text)
+				} else if counterToFour == 4 {
+					counterToFour = 0
+				}
+				counterToFour++
+			})
+
+			elementTr.ForEach("td.test2", func(_ int, elementTdTest2 *colly.HTMLElement) {
+				text = elementTdTest2.Text
+				if text == "" {
+					return
+				}
+				if counterToTwo == 1 {
+					classes = append(classes, text)
+				} else if counterToTwo == 2 {
+					counterToTwo = 0
+				}
+				counterToTwo++
+			})
+
+			elementTr.ForEach("td.godzina", func(_ int, elementTdGodzina *colly.HTMLElement) {
+				text = elementTdGodzina.Text
+				if text == "" {
+					return
+				}
+				hours = append(hours, text)
+			})
+			elementTr.ForEach("td.nazwaDnia", func(i int, elementTdNazwaDnia *colly.HTMLElement) {
+				text = elementTdNazwaDnia.Text
+				if text == "" {
+					return
+				}
+				nameOfDay = append(nameOfDay, text)
+			})
+		})
+	})
+
+	c.Visit("http://www.plan.pwsz.legnica.edu.pl/checkSpecjalnosc.php?specjalnosc=s3GK")
+
+	var subject Subject
+
+	for index, name := range names {
+		subject.Name = name
+		subject.Hour = hours[index]
+		subject.Lecturer = lecturers[index]
+		subject.Room = classes[index]
+		subjects = append(subjects, subject)
+	}
+
+	return subjects, nameOfDay
+}
+
+func getS2ZIIN() []Subject {
+	c := colly.NewCollector()
+
+	c.OnRequest(func(r *colly.Request) {
+		fmt.Println("Visiting", r.URL)
+	})
+	counterToFour := 1
+	counterToTwo := 1
+	var subjects []Subject
+	var text string
+
+	var names []string
+	var lecturers []string
+	var hours []string
+	var classes []string
+
+	var nameOfday []string
+
+	c.OnHTML("tbody", func(elementTBody *colly.HTMLElement) {
+		elementTBody.ForEach("tr", func(_ int, elementTr *colly.HTMLElement) {
+
+			elementTr.ForEach("td.test", func(_ int, elementTdTest *colly.HTMLElement) {
+				text = elementTdTest.Text
+				if text == "" {
+					return
+				}
+				if counterToFour == 1 {
+					names = append(names, text)
+				} else if counterToFour == 2 {
+					lecturers = append(lecturers, text)
+				} else if counterToFour == 4 {
+					counterToFour = 0
+				}
+				counterToFour++
+			})
+
+			elementTr.ForEach("td.test2", func(_ int, elementTdTest2 *colly.HTMLElement) {
+				text = elementTdTest2.Text
+				if text == "" {
+					return
+				}
+				if counterToTwo == 1 {
+					classes = append(classes, text)
+				} else if counterToTwo == 2 {
+					counterToTwo = 0
+				}
+				counterToTwo++
+			})
+
+			elementTr.ForEach("td.godzina", func(_ int, elementTdGodzina *colly.HTMLElement) {
+				text = elementTdGodzina.Text
+				if text == "" {
+					return
+				}
+				hours = append(hours, text)
+			})
+			elementTr.ForEach("td.nazwaDnia", func(i int, elementTdNazwaDnia *colly.HTMLElement) {
+				text = elementTdNazwaDnia.Text
+				if text == "" {
+					return
+				}
+				nameOfday = append(nameOfday, text)
+			})
+		})
+	})
+
+	c.Visit("http://www.plan.pwsz.legnica.edu.pl/checkSpecjalnosc.php?specjalnosc=s2ZIIN")
+
+	var subject Subject
+
+	for index, name := range names {
+		subject.Name = name
+		subject.Hour = hours[index]
+		subject.Lecturer = lecturers[index]
+		subject.Room = classes[index]
+		subjects = append(subjects, subject)
+	}
+
+	return subjects
+}
+
 func main() {
 	router := gin.New()
 	router.LoadHTMLGlob("image.html")
@@ -352,6 +547,7 @@ func main() {
 	router.GET("/inf-1-1", GetInfOneOne)
 	router.GET("/inf-1-2", GetInfOneTwo)
 	router.GET("/nur", GetNur)
+	router.GET("/szymin", GetSzymin)
 	err := router.Run()
 
 	if err != nil {
