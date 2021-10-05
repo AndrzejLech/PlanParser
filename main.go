@@ -22,8 +22,8 @@ type Day struct {
 
 type DoubleDay struct {
 	Name     string    `json:"name"`
-	Subject1 []Subject `json:"subject1"`
-	Subject2 []Subject `json:"subject2"`
+	Subject1 []Subject `json:"subjects1"`
+	Subject2 []Subject `json:"subjects2"`
 }
 
 func GetImage(context *gin.Context) {
@@ -348,6 +348,8 @@ func GetSzymin(context *gin.Context) {
 
 	subjects2 := getS2ZIIN()
 
+	fmt.Println(len(subjects1), len(subjects2))
+
 	for index, subject1 := range subjects1 {
 		if index < 7 {
 
@@ -355,6 +357,8 @@ func GetSzymin(context *gin.Context) {
 			day.Name = nameOfDay[indexOfDays]
 			days = append(days, day)
 			indexOfDays++
+			day.Subject1 = nil
+			day.Subject2 = nil
 		}
 		day.Subject1 = append(day.Subject1, subject1)
 		day.Subject2 = append(day.Subject2, subjects2[index])
@@ -395,7 +399,6 @@ func getS3GK() ([]Subject, []string) {
 					names = append(names, text)
 				} else if counterToFour == 2 {
 					lecturers = append(lecturers, text)
-				} else if counterToFour == 4 {
 					counterToFour = 0
 				}
 				counterToFour++
@@ -408,7 +411,6 @@ func getS3GK() ([]Subject, []string) {
 				}
 				if counterToTwo == 1 {
 					classes = append(classes, text)
-				} else if counterToTwo == 2 {
 					counterToTwo = 0
 				}
 				counterToTwo++
