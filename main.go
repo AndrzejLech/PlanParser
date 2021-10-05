@@ -21,7 +21,7 @@ type Day struct {
 }
 
 type DoubleDay struct {
-	Name     string    `json:"name:"`
+	Name     string    `json:"name"`
 	Subject1 []Subject `json:"subject1"`
 	Subject2 []Subject `json:"subject2"`
 }

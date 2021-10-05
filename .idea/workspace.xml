@@ -19,10 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f3602fc-df54-475b-b4f4-f0101166e99a" name="Default Changelist" comment="szymin">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-    </list>
+    <list default="true" id="2f3602fc-df54-475b-b4f4-f0101166e99a" name="Default Changelist" comment="update szymin" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,7 +89,8 @@
     <MESSAGE value="change to whole year harmonogram" />
     <MESSAGE value="update nur" />
     <MESSAGE value="szymin" />
-    <option name="LAST_COMMIT_MESSAGE" value="szymin" />
+    <MESSAGE value="update szymin" />
+    <option name="LAST_COMMIT_MESSAGE" value="update szymin" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
