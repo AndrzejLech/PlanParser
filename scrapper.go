@@ -435,7 +435,7 @@ func getS1ZIP11() ([]Subject, []string) {
 					names = append(names, text)
 				} else if counterToFour == 2 {
 					lecturers = append(lecturers, text)
-				} else if counterToFour == 4 {
+				} else if counterToFour == 10 {
 					counterToFour = 0
 				}
 				counterToFour++
@@ -448,7 +448,7 @@ func getS1ZIP11() ([]Subject, []string) {
 				}
 				if counterToTwo == 1 {
 					classes = append(classes, text)
-				} else if counterToTwo == 2 {
+				} else if counterToTwo == 5 {
 					counterToTwo = 0
 				}
 				counterToTwo++

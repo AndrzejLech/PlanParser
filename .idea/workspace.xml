@@ -19,12 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f3602fc-df54-475b-b4f4-f0101166e99a" name="Default Changelist" comment="update szymin">
-      <change afterPath="$PROJECT_DIR$/controllers.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scrapper.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/structs.go" afterDir="false" />
+    <list default="true" id="2f3602fc-df54-475b-b4f4-f0101166e99a" name="Default Changelist" comment="create getMamlina and structure change">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapper.go" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +97,9 @@
     <MESSAGE value="update nur" />
     <MESSAGE value="szymin" />
     <MESSAGE value="update szymin" />
-    <option name="LAST_COMMIT_MESSAGE" value="update szymin" />
+    <MESSAGE value="create getMamlina" />
+    <MESSAGE value="create getMamlina and structure change" />
+    <option name="LAST_COMMIT_MESSAGE" value="create getMamlina and structure change" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
