@@ -6,6 +6,6 @@ services:
     volumes:
       - .:/go/src/go/
     working_dir: /go/src/go
-    command: go run main.go contoller.go structs.go scrapper.go
+    command: go run .
     ports:
     - "8080:8080"
