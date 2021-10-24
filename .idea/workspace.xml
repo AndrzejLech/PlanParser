@@ -19,8 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f3602fc-df54-475b-b4f4-f0101166e99a" name="Default Changelist" comment="fix getMamlina">
+    <list default="true" id="2f3602fc-df54-475b-b4f4-f0101166e99a" name="Default Changelist" comment="docker changes">
+      <change afterPath="$PROJECT_DIR$/utils.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapper.go" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +61,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../revel" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunManager">
@@ -99,9 +102,36 @@
     <MESSAGE value="create getMamlina" />
     <MESSAGE value="create getMamlina and structure change" />
     <MESSAGE value="fix getMamlina" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix getMamlina" />
+    <MESSAGE value="docker changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="docker changes" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/controllers.go</url>
+          <line>135</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/utils.go</url>
+          <line>12</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/utils.go</url>
+          <line>20</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/utils.go</url>
+          <line>33</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

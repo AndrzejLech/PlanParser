@@ -109,6 +109,8 @@ func GetNur(context *gin.Context) {
 		day.Subjects = append(day.Subjects, subject)
 	}
 
+	days = removePastDays(days)
+
 	days = days[:len(days)-1]
 
 	context.JSON(200, days)
@@ -133,6 +135,8 @@ func GetInfOneOne(context *gin.Context) {
 		day.Subjects = append(day.Subjects, subject)
 	}
 
+	days = removePastDays(days)
+
 	days = days[:len(days)-1]
 
 	context.JSON(200, days)
@@ -156,6 +160,8 @@ func GetInfOneTwo(context *gin.Context) {
 		}
 		day.Subjects = append(day.Subjects, subject)
 	}
+
+	days = removePastDays(days)
 
 	days = days[:len(days)-1]
 

@@ -320,7 +320,6 @@ func getS4PAM11All() ([]Subject, []string) {
 		subject.Room = classes[index]
 		subjects = append(subjects, subject)
 	}
-
 	return subjects, nameOfDay
 }
 
