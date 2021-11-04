@@ -25,7 +25,12 @@ func removePastDays(days []Day) []Day {
 		monthToCheck := string(date[len(date)-5 : len(date)-3])
 		yearToCheck := string(date[len(date)-10 : len(date)-6])
 
-		if !(stringToInt64(dayToCheck) < int64(today) && stringToInt64(monthToCheck) <= int64(month) && stringToInt64(yearToCheck) <= int64(year)) {
+		if stringToInt64(yearToCheck) == int64(year) {
+			if stringToInt64(dayToCheck) >= int64(today) && stringToInt64(monthToCheck) >= int64(month) {
+				newDays = append(newDays, day)
+				println(len(newDays), day.Name)
+			}
+		} else if stringToInt64(yearToCheck) > int64(year) {
 			newDays = append(newDays, day)
 			println(len(newDays), day.Name)
 		}
