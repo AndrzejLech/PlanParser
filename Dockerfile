@@ -1,6 +1,6 @@
-FROM golang:1.19.2
+FROM golang:1.19
 
-RUN go mod build
+RUN go get github.com/gin-gonic/gin
 
 WORKDIR /go/src/app
 COPY . .
