@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
+	. "planScrapper/controllers"
 	"time"
 )
 
@@ -23,11 +24,7 @@ func main() {
 	}))
 
 	router.GET("/", GetImage)
-	router.GET("/inf-1-1", GetInfOneOne)
-	router.GET("/inf-1-2", GetInfOneTwo)
-	router.GET("/nur", GetNur)
-	router.GET("/szymin", GetSzymin)
-	router.GET("/mamlina", GetMamlina)
+	router.GET("/mfz", GetMFZ12)
 	err := router.Run()
 
 	if err != nil {
