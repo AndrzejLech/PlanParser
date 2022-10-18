@@ -10,3 +10,7 @@ type Day struct {
 	Name     string    `json:"name"`
 	Subjects []Subject `json:"subjects"`
 }
+
+type Week struct {
+	Day []Day `json:"day"`
+}
