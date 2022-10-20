@@ -12,5 +12,5 @@ type Day struct {
 }
 
 type Week struct {
-	Day []Day `json:"day"`
+	Days []Day `json:"days"`
 }

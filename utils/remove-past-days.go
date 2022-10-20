@@ -1,16 +1,10 @@
 package utils
 
 import (
-	"strconv"
 	"time"
 )
 
 import . "planScrapper/structs"
-
-func StringToInt64(string string) int64 {
-	integer64, _ := strconv.ParseInt(string, 10, 64)
-	return integer64
-}
 
 func RemovePastDays(days []Day) []Day {
 	var newDays []Day
