@@ -26,6 +26,8 @@ func main() {
 	router.GET("/", GetImage)
 	router.GET("/mfz", GetMFZ12All)
 	router.GET("/mfz-week", GetMFZ12PerWeek)
+	router.GET("/nur", GetS2MPAll)
+	router.GET("/nur-week", GetS2MPPerWeek)
 	err := router.Run()
 
 	if err != nil {
