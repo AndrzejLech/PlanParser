@@ -40,6 +40,7 @@ func GetS2MPPerWeek(context *gin.Context) {
 		monday := previousDate.AddDate(0, 0, -previousWeekday)
 
 		if date.AddDate(0, 0, -newWeekday).Day() == previousDate.AddDate(0, 0, -previousWeekday).Day() || index == 0 {
+			week.Days[newWeekday].IsBusy = true
 			week.Days[newWeekday] = days[index]
 		} else {
 

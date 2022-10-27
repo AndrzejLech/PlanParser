@@ -36,6 +36,7 @@ func GetMFZ12PerWeek(context *gin.Context) {
 
 		if date.AddDate(0, 0, -newWeekday).Day() == previousDate.AddDate(0, 0, -previousWeekday).Day() || index == 0 {
 			week.Days[newWeekday] = days[index]
+			week.Days[newWeekday].IsBusy = true
 		} else {
 
 			for numberOfElement, element := range week.Days {

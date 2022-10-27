@@ -1,4 +1,5 @@
 package structs
+
 type Subject struct {
 	Hour     string `json:"hour"`
 	Name     string `json:"name"`
@@ -9,6 +10,7 @@ type Subject struct {
 type Day struct {
 	Name     string    `json:"name"`
 	Subjects []Subject `json:"subjects"`
+	IsBusy   bool      `json:"isBusy"`
 }
 
 type Week struct {
