@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
 	. "planScrapper/scrapper"
 	. "planScrapper/structs"
@@ -32,15 +31,11 @@ func GetMFZ12PerWeek(context *gin.Context) {
 		newWeekday, date := GetWeekDay(element.Name)
 		newWeekday = GetWeekdaysStraight(newWeekday)
 
-		fmt.Print("mfz-controller: ",element.Name," new: ", date.AddDate(0, 0, -newWeekday).Day()," old: ", previousDate.AddDate(0, 0, -previousWeekday).Day(), index, "\n")
-
 		monday := previousDate.AddDate(0, 0, -previousWeekday)
 
 		if date.AddDate(0, 0, -newWeekday).Day() == previousDate.AddDate(0, 0, -previousWeekday).Day() || index == 0 {
 			week.Days[newWeekday] = days[index]
-			week.Days[newWeekday].IsBusy = true
 		} else {
-			week.Days[newWeekday].IsBusy = true
 			
 			for numberOfElement, _ := range week.Days {
 				dateOfDay := monday.AddDate(0,0, numberOfElement)
@@ -49,7 +44,6 @@ func GetMFZ12PerWeek(context *gin.Context) {
 			}
 
 			weeks = append(weeks, week)
-
 			week = CreateEmptyWeek()
 			week.Days[newWeekday] = days[index]
 		}

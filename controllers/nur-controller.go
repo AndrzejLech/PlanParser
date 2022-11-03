@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
 	. "planScrapper/scrapper"
 	. "planScrapper/structs"
@@ -40,15 +39,11 @@ func GetS2MPPerWeek(context *gin.Context) {
 		monday := previousDate.AddDate(0, 0, -previousWeekday)
 
 		if date.AddDate(0, 0, -newWeekday).Day() == previousDate.AddDate(0, 0, -previousWeekday).Day() || index == 0 {
-			week.Days[newWeekday].IsBusy = true
 			week.Days[newWeekday] = days[index]
 		} else {
-			week.Days[newWeekday].IsBusy = true
-			
-			for numberOfElement, element := range week.Days {
+			for numberOfElement, _ := range week.Days {
 				dateOfDay := monday.AddDate(0,0, numberOfElement)
 				week.Days[numberOfElement].Name = ChangeWeekdayNumberToName(numberOfElement) + " " + strconv.Itoa(dateOfDay.Day()) + "." + strconv.Itoa(int(dateOfDay.Month())) + "." + strconv.Itoa(dateOfDay.Year())
-				fmt.Print(element.Name + "\n")
 			}
 
 			weeks = append(weeks, week)
