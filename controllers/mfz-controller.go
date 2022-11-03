@@ -32,17 +32,20 @@ func GetMFZ12PerWeek(context *gin.Context) {
 		newWeekday, date := GetWeekDay(element.Name)
 		newWeekday = GetWeekdaysStraight(newWeekday)
 
+		fmt.Print("mfz-controller: ",element.Name," new: ", date.AddDate(0, 0, -newWeekday).Day()," old: ", previousDate.AddDate(0, 0, -previousWeekday).Day(), index, "\n")
+
 		monday := previousDate.AddDate(0, 0, -previousWeekday)
 
 		if date.AddDate(0, 0, -newWeekday).Day() == previousDate.AddDate(0, 0, -previousWeekday).Day() || index == 0 {
 			week.Days[newWeekday] = days[index]
 			week.Days[newWeekday].IsBusy = true
 		} else {
-
-			for numberOfElement, element := range week.Days {
+			week.Days[newWeekday].IsBusy = true
+			
+			for numberOfElement, _ := range week.Days {
 				dateOfDay := monday.AddDate(0,0, numberOfElement)
+
 				week.Days[numberOfElement].Name = ChangeWeekdayNumberToName(numberOfElement) + " " + strconv.Itoa(dateOfDay.Day()) + "." + strconv.Itoa(int(dateOfDay.Month())) + "." + strconv.Itoa(dateOfDay.Year())
-				fmt.Print(element.Name + "\n")
 			}
 
 			weeks = append(weeks, week)

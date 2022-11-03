@@ -43,7 +43,8 @@ func GetS2MPPerWeek(context *gin.Context) {
 			week.Days[newWeekday].IsBusy = true
 			week.Days[newWeekday] = days[index]
 		} else {
-
+			week.Days[newWeekday].IsBusy = true
+			
 			for numberOfElement, element := range week.Days {
 				dateOfDay := monday.AddDate(0,0, numberOfElement)
 				week.Days[numberOfElement].Name = ChangeWeekdayNumberToName(numberOfElement) + " " + strconv.Itoa(dateOfDay.Day()) + "." + strconv.Itoa(int(dateOfDay.Month())) + "." + strconv.Itoa(dateOfDay.Year())
