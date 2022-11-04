@@ -9,7 +9,6 @@ func CreateDays(subjects []Subject, nameOfDay []string) []Day {
 	var days []Day
 	var indexOfDays = 0
 	var day = NewDay("", []Subject{})
-	subjects = append([]Subject{{"", "", "", ""}}, subjects...)
 
 	for index, subject := range subjects {
 		subject.Name = strings.TrimSpace(subject.Name)
