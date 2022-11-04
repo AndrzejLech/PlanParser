@@ -29,7 +29,7 @@ func CreateEmptyWeek() Week {
 		case 6:
 			emptySubject.Hour = "18:45-20:15"
 		}
-		
+
 		emptySubjects = append(emptySubjects, emptySubject)
 		m++
 	}
@@ -41,6 +41,7 @@ func CreateEmptyWeek() Week {
 		week.Days = append(week.Days, Day{
 			Name:     "-",
 			Subjects: emptySubjects,
+			IsBusy:   false,
 		})
 		n++
 	}
