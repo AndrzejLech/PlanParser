@@ -13,6 +13,14 @@ type Day struct {
 	IsBusy   bool      `json:"isBusy"`
 }
 
+func NewDay(name string, subjects []Subject) Day {
+	return Day{
+		name,
+		subjects,
+		false,
+	}
+}
+
 type Week struct {
 	Days []Day `json:"days"`
 }

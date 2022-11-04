@@ -8,15 +8,15 @@ import (
 func CreateDays(subjects []Subject, nameOfDay []string) []Day {
 	var days []Day
 	var indexOfDays = 0
-	var day Day
+	var day = NewDay("", []Subject{})
 
 	for index, subject := range subjects {
 		subject.Name = strings.TrimSpace(subject.Name)
-
-		if day.IsBusy == true {
+		
+		if day.IsBusy {
 		} else if subject.Name == "-" {
 			day.IsBusy = false
-		} else {
+		} else{
 			day.IsBusy = true
 		}
 		
@@ -24,10 +24,11 @@ func CreateDays(subjects []Subject, nameOfDay []string) []Day {
 		} else if (index % 7) == 0 {
 			day.Name = nameOfDay[indexOfDays]
 			days = append(days, day)
+
 			indexOfDays++
-			day.Subjects = nil
-			day.IsBusy = false
+			day = NewDay("", []Subject{})
 		}
+
 		day.Subjects = append(day.Subjects, subject)
 	}
 	return days
