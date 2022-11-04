@@ -11,8 +11,9 @@ func CreateDays(subjects []Subject, nameOfDay []string) []Day {
 	var day = NewDay("", []Subject{})
 
 	for index, subject := range subjects {
-		subject.Name = strings.TrimSpace(subject.Name)
+		day.Subjects = append(day.Subjects, subject)
 
+		subject.Name = strings.TrimSpace(subject.Name)
 		if day.IsBusy {
 		} else if subject.Name == "-" {
 			day.IsBusy = false
@@ -27,8 +28,6 @@ func CreateDays(subjects []Subject, nameOfDay []string) []Day {
 			indexOfDays++
 			day = NewDay("", []Subject{})
 		}
-
-		day.Subjects = append(day.Subjects, subject)
 	}
 	return days
 }
