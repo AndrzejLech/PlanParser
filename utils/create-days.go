@@ -21,9 +21,7 @@ func CreateDays(subjects []Subject, nameOfDay []string) []Day {
 			day.IsBusy = true
 		}
 
-		println(nameOfDay[indexOfDays], subject.Name)
-
-		if (index +1 % 7) == 0 {
+		if ((index+1) % 7) == 0 {
 			day.Name = nameOfDay[indexOfDays]
 			days = append(days, day)
 
