@@ -1,6 +1,9 @@
 package utils
 
-import . "planScrapper/structs"
+import (
+	"fmt"
+	. "planScrapper/structs"
+)
 
 func CreateDays(subjects []Subject, nameOfDay []string) []Day {
 	var days []Day
@@ -15,7 +18,12 @@ func CreateDays(subjects []Subject, nameOfDay []string) []Day {
 			days = append(days, day)
 			indexOfDays++
 			day.Subjects = nil
+		}
+		if subject.Name != "-  " {
+			fmt.Println("\"" + subject.Name + "\"")
 			day.IsBusy = true
+		} else {
+			day.IsBusy = false
 		}
 		day.Subjects = append(day.Subjects, subject)
 	}
