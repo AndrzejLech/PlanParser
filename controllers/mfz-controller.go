@@ -14,7 +14,7 @@ func GetMFZ12All(context *gin.Context) {
 
 	days := CreateDays(subjects, nameOfDay)
 	days = RemovePastDays(days)
-	days = days[:len(days)-1]
+
 
 	context.JSON(200, days)
 }
