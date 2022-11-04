@@ -24,9 +24,9 @@ func CreateDays(subjects []Subject, nameOfDay []string) []Day {
 		println(nameOfDay[indexOfDays], subject.Name)
 
 		if index < 7 {
-		} else if (index % 7) == 0 {
+		} else if (index % 8) == 0 {
 
-			if (index == 7){
+			if (index == 8){
 			day.Subjects = day.Subjects[1:]
 			}
 
