@@ -1,8 +1,8 @@
 package utils
 
 import (
-	"fmt"
 	. "planScrapper/structs"
+	"strings"
 )
 
 func CreateDays(subjects []Subject, nameOfDay []string) []Day {
@@ -11,18 +11,22 @@ func CreateDays(subjects []Subject, nameOfDay []string) []Day {
 	var day Day
 
 	for index, subject := range subjects {
-
 		if index < 7 {
 		} else if (index % 7) == 0 {
 			day.Name = nameOfDay[indexOfDays]
+
+			subject.Name = strings.TrimSpace(subject.Name)
+
+			if day.IsBusy == true {
+			} else if subject.Name == "-" {
+				day.IsBusy = false
+			} else {
+				day.IsBusy = true
+			}
+
 			days = append(days, day)
 			indexOfDays++
 			day.Subjects = nil
-		}
-		if subject.Name != "-  " {
-			fmt.Println("\"" + subject.Name + "\"")
-			day.IsBusy = true
-		} else {
 			day.IsBusy = false
 		}
 		day.Subjects = append(day.Subjects, subject)
